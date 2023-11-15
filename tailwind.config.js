@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      signautre: ['Great Vibes'],
+      signautre: ['PriceDown', 'sans-serif'],
     }
   },
   plugins: [],
