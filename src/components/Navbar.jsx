@@ -4,6 +4,11 @@ import { Link } from 'react-scroll';
 
 const Navbar = () => {
     const [nav, setNav ] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    const toogleDarkMode = () => {
+        setIsDarkMode(!isDarkMode);
+    };
 
     const links =[
         {id : 1, link: 'Home'},
@@ -33,6 +38,10 @@ const Navbar = () => {
         {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
         </div>
 
+        <button onClick={toogleDarkMode} 
+        className="ml-4 p-2 border rounded focus:outline-none hidden md:block">
+        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+        </button>
         {nav && (
             <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-slate-500 to-slate-950 text-white">
                 {links.map(({ id, link }) => (

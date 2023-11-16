@@ -1,5 +1,6 @@
 import React from 'react'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
 import { HiOutlineMail } from 'react-icons/hi'
 import { BsFillPersonLinesFill } from 'react-icons/bs'
 
@@ -19,7 +20,7 @@ const Links = () => {
             id: 2,
             icon: (
                 <>
-                Twitter<FaTwitter size={25} />
+                Twitter<FaXTwitter size={25} />
                 </>
                 ),
             url: 'https://twitter.com/Spidy566'
