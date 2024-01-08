@@ -1,14 +1,8 @@
 import React,{ useState } from 'react';
-import { FaBars, FaTimes} from 'react-icons/fa';
 import { Link } from 'react-scroll';
 
 const Navbar = () => {
     const [nav, setNav ] = useState(false);
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
-    const toogleDarkMode = () => {
-        setIsDarkMode(!isDarkMode);
-    };
 
     const links =[
         {id : 1, link: 'Home'},
@@ -18,32 +12,22 @@ const Navbar = () => {
     ];
 
   return (
-    <div className='flex justify-between items-center w-full h-20 px-4 text-white bg-slate-950 fixed'>
+    <div className='flex justify-between items-center w-full h-20 px-4 text-white bg-black bg-opacity-95 fixed'>
         <div>
-            <h1 className='text-5xl font-signautre ml-2'>Vishal</h1>
+            <h1 className='text-5xl font-signautre ml-2 text-yellow-500'>Vishal</h1>
         </div>
 
-        <ul className='hidden md:flex'>
+        <ul className='hidden md:flex flex-grow justify-center'>
             {links.map(({id, link}) => (
-            <li key={id} className='px-4 cursor-pointer captialize hover: duration-200'>
+            <li key={id} className='px-4 cursor-pointer captialize hover: duration-200 items-center'>
             <Link to={link} smooth duration={500}>
             {link}
             </Link>
             </li>
         ))}
         </ul>
-        <div
-        onClick={() => setNav(!nav)}
-        className="cursor-pointer pr-4 z-10 text-white md:hidden">
-        {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
-        </div>
-
-        <button onClick={toogleDarkMode} 
-        className="ml-4 p-2 border rounded focus:outline-none hidden md:block">
-        {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-        </button>
         {nav && (
-            <ul className="flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-slate-500 to-slate-950 text-white">
+            <ul className="flex flex-col justify-center">
                 {links.map(({ id, link }) => (
                     <li key={id} className="px-4 cursor-pointer capitalize py-6 text-4xl">
             <Link onClick={() => setNav(!nav)} to={link} smooth duration={500}>
